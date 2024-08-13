@@ -16,6 +16,7 @@ fun BottomNavBar(navController: NavHostController) {
     val items = listOf(
         BottomNavItem.HomePage,
         BottomNavItem.ConvertPage,
+        BottomNavItem.FavoritePage,
         BottomNavItem.AlertListPage,
         BottomNavItem.SettingsPage
     )

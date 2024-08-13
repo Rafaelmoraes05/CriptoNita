@@ -7,6 +7,7 @@ import androidx.navigation.compose.composable
 import com.example.criptonita.ui.HomePage
 import com.example.criptonita.ui.AlertListPage
 import com.example.criptonita.ui.ConvertPage
+import com.example.criptonita.ui.FavoritePage
 import com.example.criptonita.ui.SettingsPage
 
 @Composable
@@ -24,6 +25,9 @@ fun MainNavHost(navController: NavHostController) {
         }
         composable(route = BottomNavItem.SettingsPage.route) {
             SettingsPage()
+        }
+        composable(route = BottomNavItem.FavoritePage.route) {
+            FavoritePage()
         }
     }
 }
