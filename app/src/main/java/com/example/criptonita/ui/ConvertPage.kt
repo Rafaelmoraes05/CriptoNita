@@ -1,28 +1,34 @@
 package com.example.criptonita.ui
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.border
+import androidx.compose.foundation.layout.Box
 import androidx.compose.ui.unit.sp
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.wrapContentSize
+import androidx.compose.foundation.text.BasicTextField
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.ui.Modifier
 import com.example.criptonita.R
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextField
+import androidx.compose.material3.TextFieldColors
+import androidx.compose.material3.TextFieldDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
-import androidx.compose.ui.res.colorResource
-import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.text.input.KeyboardType
-import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
-import com.example.criptonita.ui.theme.PurpleGrey40
+import com.example.criptonita.ui.theme.blackBackground
+import com.example.criptonita.ui.theme.primaryColorGreen
+
 
 @Preview
 @Composable
@@ -30,8 +36,7 @@ fun ConvertPage() {
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .padding(16.dp)
-
+            .background(blackBackground)
 
     ) {
         // Campo para selecionar a Criptomoeda
@@ -71,7 +76,8 @@ fun ConvertPage() {
             modifier = Modifier
                 .align(Alignment.CenterHorizontally)
                 .padding(vertical = 16.dp),
-            fontSize = 24.sp
+            fontSize = 24.sp,
+            color = Color.White
         )
 
         // Botão para converter
@@ -79,7 +85,8 @@ fun ConvertPage() {
             onClick = { /* Ação de conversão */ },
             modifier = Modifier
                 .align(Alignment.CenterHorizontally)
-                .padding(vertical = 16.dp)
+                .padding(vertical = 16.dp),
+            colors = ButtonDefaults.buttonColors(primaryColorGreen)
         ) {
             Text(text = "Converter")
         }
