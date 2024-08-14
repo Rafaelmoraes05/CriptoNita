@@ -43,6 +43,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.window.Dialog
 import com.example.criptonita.R
+import com.example.criptonita.ui.theme.blackBackground
 
 @Preview
 @Composable
@@ -63,17 +64,19 @@ fun AlertListPage() {
             modifier = Modifier
                 .fillMaxSize()
                 .padding(innerPadding)
+                .background(blackBackground)
         ) {
             // Renderiza a lista de alertas
             alerts.forEach { (criptoName, value) ->
                 AlertItem(criptoName = criptoName, value = value)
             }
         }
+
         // Alerta 1
-        AlertItem(criptoName = "BTC", value = "320.000BRL")
+        AlertItem(criptoName = "ETH", value = "16.000BRL")
 
         // Alerta 2
-        AlertItem(criptoName = "ETH", value = "16.000BRL")
+        AlertItem(criptoName = "BTC", value = "320.000BRL")
 
         if (showDialog) {
             CreateAlertDialog(
