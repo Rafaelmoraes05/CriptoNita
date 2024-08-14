@@ -34,6 +34,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.criptonita.R
+import com.example.criptonita.ui.theme.blackBackground
 
 @Preview
 @Composable
@@ -45,7 +46,7 @@ fun SettingsPage() {
             contentPadding = innerPadding,
             modifier = Modifier
                 .fillMaxSize()
-                .background(Color.White)
+                .background(blackBackground)
         ) {
             item {
                 SettingsItem(title = "Moeda Base") {
@@ -84,7 +85,7 @@ fun SettingsItem(title: String, onClick: () -> Unit) {
             text = title,
             modifier = Modifier.weight(1f),
             fontSize = 18.sp,
-            color = Color.Black
+            color = Color.White
         )
         Icon(
             imageVector = Icons.Default.KeyboardArrowRight,
