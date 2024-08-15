@@ -1,13 +1,17 @@
 package com.example.criptonita.ui
 
 import androidx.activity.ComponentActivity
+import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
@@ -18,8 +22,13 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
+import com.example.criptonita.R
 import com.example.criptonita.showToastAndFinish
+import com.example.criptonita.ui.theme.blackBackground
+import com.example.criptonita.ui.theme.primaryColorGreen
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -32,10 +41,20 @@ fun RegisterPage(activity: ComponentActivity) {
     Column(
         modifier = Modifier
             .fillMaxSize()
+            .background(blackBackground)
             .padding(16.dp),
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
+        Image(
+            painter = painterResource(id = R.drawable.criptonita_logo),
+            contentDescription = "CriptoNita Logo",
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(16.dp)
+                .height(200.dp),
+            contentScale = ContentScale.Fit
+        )
         OutlinedTextField(
             value = username,
             onValueChange = { username = it },
@@ -68,12 +87,17 @@ fun RegisterPage(activity: ComponentActivity) {
             onClick = { showToastAndFinish(activity) },
             enabled = username.isNotEmpty() && email.isNotEmpty() &&
                     password.isNotEmpty() && confirmPassword.isNotEmpty() &&
-                    password == confirmPassword
+                    password == confirmPassword,
+            colors = ButtonDefaults.buttonColors(primaryColorGreen),
         ) {
             Text("Registrar")
         }
         Spacer(modifier = Modifier.padding(8.dp))
-        Button(onClick = { /* Limpar campos */ }) {
+        Button(
+            onClick = { /* Limpar campos */ },
+            colors = ButtonDefaults.buttonColors(primaryColorGreen)
+        ) {
+
             Text("Limpar")
         }
     }

@@ -34,7 +34,6 @@ class MainActivity : ComponentActivity() {
         setContent {
             val navController = rememberNavController()
             CriptoNitaTheme {
-                // A surface container using the 'background' color from the theme
                 Scaffold(
                     topBar = {
                         TopAppBar(

@@ -59,7 +59,6 @@ fun HomePage() {
     }
 }
 
-
 data class Cryptocurrency(val name: String, val symbol: String, val value: String, val icon: ImageVector)
 
 @Composable
