@@ -22,8 +22,11 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import com.example.criptonita.R
 import com.example.criptonita.showToastAndFinish
@@ -88,17 +91,28 @@ fun RegisterPage(activity: ComponentActivity) {
             enabled = username.isNotEmpty() && email.isNotEmpty() &&
                     password.isNotEmpty() && confirmPassword.isNotEmpty() &&
                     password == confirmPassword,
-            colors = ButtonDefaults.buttonColors(primaryColorGreen),
+            colors = ButtonDefaults.buttonColors(
+                containerColor = primaryColorGreen,
+                contentColor = Color.Black
+            ),
         ) {
-            Text("Registrar")
+            Text(
+                "Registrar",
+                style = TextStyle(fontWeight = FontWeight.Bold)
+            )
         }
         Spacer(modifier = Modifier.padding(8.dp))
         Button(
             onClick = { /* Limpar campos */ },
-            colors = ButtonDefaults.buttonColors(primaryColorGreen)
+            colors = ButtonDefaults.buttonColors(
+                containerColor = primaryColorGreen,
+                contentColor = Color.Black
+            ),
         ) {
-
-            Text("Limpar")
+            Text(
+                "Limpar",
+                style = TextStyle(fontWeight = FontWeight.Bold)
+            )
         }
     }
 }
