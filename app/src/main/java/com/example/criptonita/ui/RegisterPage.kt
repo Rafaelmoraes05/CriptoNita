@@ -1,5 +1,6 @@
 package com.example.criptonita.ui
 
+import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -32,6 +33,8 @@ import com.example.criptonita.R
 import com.example.criptonita.showToastAndFinish
 import com.example.criptonita.ui.theme.blackBackground
 import com.example.criptonita.ui.theme.primaryColorGreen
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -87,7 +90,16 @@ fun RegisterPage(activity: ComponentActivity) {
         )
         Spacer(modifier = Modifier.padding(16.dp))
         Button(
-            onClick = { showToastAndFinish(activity) },
+            onClick = {
+                Firebase.auth.createUserWithEmailAndPassword(email, password)
+                    .addOnCompleteListener(activity!!) { task ->
+                        if (task.isSuccessful) {
+                            showToastAndFinish(activity)
+                        } else {
+                            Toast.makeText(activity, "Registro FALHOU: ${task.exception?.message}", Toast.LENGTH_LONG).show()
+                        }
+                    }
+            },
             enabled = username.isNotEmpty() && email.isNotEmpty() &&
                     password.isNotEmpty() && confirmPassword.isNotEmpty() &&
                     password == confirmPassword,

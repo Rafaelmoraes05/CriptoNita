@@ -26,6 +26,8 @@ import com.example.criptonita.ui.HomePage
 import com.example.criptonita.ui.nav.BottomNavBar
 import com.example.criptonita.ui.nav.MainNavHost
 import com.example.criptonita.ui.theme.CriptoNitaTheme
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
 
 class MainActivity : ComponentActivity() {
     @OptIn(ExperimentalMaterial3Api::class)
@@ -39,7 +41,9 @@ class MainActivity : ComponentActivity() {
                         TopAppBar(
                             title = { Text("CriptoNita") },
                             actions = {
-                                IconButton( onClick = { finish() } ) {
+                                IconButton(onClick = {
+                                    Firebase.auth.signOut()
+                                    finish() }) {
                                     Icon(
                                         imageVector = Icons.Default.ExitToApp,
                                         contentDescription = "Localized description"
